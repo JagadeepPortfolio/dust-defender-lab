@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -56,6 +56,38 @@ const galleryImages = [
   { src: "/images/gallery/bike-detailing.webp", alt: "Custom bike with gold wheels after professional detailing at Dust Defender Lab" },
   { src: "/images/gallery/porsche-gloss.webp", alt: "Porsche 911 rear quarter showing deep gloss ceramic coating finish" },
 ];
+
+function MobileGallery() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  // Slide from 0 to -40% as user scrolls through
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+
+  return (
+    <div ref={ref} className="md:hidden overflow-hidden -mx-6">
+      <motion.div className="flex gap-3 px-6" style={{ x }}>
+        {galleryImages.map((img) => (
+          <div
+            key={img.src}
+            className="relative flex-shrink-0 w-[70vw] aspect-[3/4] rounded-xl overflow-hidden"
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover brightness-[0.85]"
+              sizes="70vw"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
 export default function TrustSection() {
   return (
@@ -131,12 +163,12 @@ export default function TrustSection() {
           ))}
         </div>
 
-        {/* Image gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Image gallery — Desktop: 3-col grid */}
+        <div className="hidden md:grid grid-cols-3 gap-4">
           {galleryImages.map((img, i) => (
             <motion.div
               key={img.src}
-              className="relative aspect-[3/4] md:aspect-[4/5] rounded-xl overflow-hidden group"
+              className="relative aspect-[4/5] rounded-xl overflow-hidden group"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -151,12 +183,15 @@ export default function TrustSection() {
                 alt={img.alt}
                 fill
                 className="object-cover brightness-[0.85] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="33vw"
                 loading="lazy"
               />
             </motion.div>
           ))}
         </div>
+
+        {/* Image gallery — Mobile: horizontal scroll-linked slide */}
+        <MobileGallery />
 
         {/* Additional SEO copy */}
         <motion.p
