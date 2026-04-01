@@ -52,9 +52,9 @@ function AnimatedCounter({
 }
 
 const galleryImages = [
-  { src: "/images/scroll-story/05-final-reveal.webp", alt: "Completed ceramic coated Porsche with mirror finish" },
-  { src: "/images/scroll-story/04-ceramic-coating.webp", alt: "Ceramic coating application showing iridescent shimmer" },
-  { src: "/images/scroll-story/03-polishing.webp", alt: "Professional paint correction process" },
+  { src: "/images/gallery/mercedes-wash.webp", alt: "Mercedes AMG GT getting premium foam wash at Dust Defender Lab studio" },
+  { src: "/images/gallery/bike-detailing.webp", alt: "Custom bike with gold wheels after professional detailing at Dust Defender Lab" },
+  { src: "/images/gallery/porsche-gloss.webp", alt: "Porsche 911 rear quarter showing deep gloss ceramic coating finish" },
 ];
 
 export default function TrustSection() {
