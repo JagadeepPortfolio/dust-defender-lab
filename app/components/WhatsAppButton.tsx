@@ -10,8 +10,7 @@ export default function WhatsAppButton() {
         href="https://wa.me/919999999999?text=Hi%20Dust%20Defender%20Lab%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-[6000] w-14 h-14 flex items-center justify-center rounded-full bg-whatsapp text-white shadow-lg hover:brightness-110 transition-all duration-300 hover:-translate-y-1"
-        style={{ animation: "pulseGlow 3s ease-in-out infinite" }}
+        className="fixed bottom-6 right-6 z-[6000] w-14 h-14 flex items-center justify-center rounded-full bg-glass-bg backdrop-blur-md border border-glass-border text-accent/70 shadow-[0_0_20px_rgba(232,240,255,0.06)] hover:text-accent hover:border-accent/30 hover:shadow-[0_0_25px_rgba(232,240,255,0.1)] transition-all duration-500 hover:-translate-y-1"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
