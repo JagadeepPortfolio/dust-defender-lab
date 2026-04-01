@@ -52,9 +52,9 @@ function AnimatedCounter({
 }
 
 const galleryImages = [
-  { src: "/images/scroll-story/05-final-reveal.png", alt: "Completed ceramic coated Porsche with mirror finish" },
-  { src: "/images/scroll-story/04-ceramic-coating.png", alt: "Ceramic coating application showing iridescent shimmer" },
-  { src: "/images/scroll-story/03-polishing.png", alt: "Professional paint correction process" },
+  { src: "/images/scroll-story/05-final-reveal.webp", alt: "Completed ceramic coated Porsche with mirror finish" },
+  { src: "/images/scroll-story/04-ceramic-coating.webp", alt: "Ceramic coating application showing iridescent shimmer" },
+  { src: "/images/scroll-story/03-polishing.webp", alt: "Professional paint correction process" },
 ];
 
 export default function TrustSection() {
