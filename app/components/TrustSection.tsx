@@ -61,10 +61,10 @@ function MobileGallery() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start 0.9", "start 0.2"],
   });
-  // Slide from 0 to -40% as user scrolls through
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  // Slide enough to reveal all 3 cards (each 70vw + gap)
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-110%"]);
 
   return (
     <div ref={ref} className="md:hidden overflow-hidden -mx-6">
