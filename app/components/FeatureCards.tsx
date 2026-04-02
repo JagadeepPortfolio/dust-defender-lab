@@ -2,11 +2,23 @@
 
 import { motion } from "framer-motion";
 
-const features = [
+const services = [
   {
-    title: "Hydrophobic Protection",
+    title: "Paint Protection Film",
+    tag: "PPF",
     description:
-      "Water beads and slides off instantly. Dust, dirt, and grime can't bond to the surface. Your car stays cleaner, longer.",
+      "Invisible armor against rock chips, scratches, and road debris. Self-healing technology keeps your paint flawless for years.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 3l3.7 7.5L28 12l-6 5.8L23.4 26 16 22l-7.4 4L10 17.8 4 12l8.3-1.5z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Ceramic Coating",
+    tag: "Most Popular",
+    description:
+      "Professional-grade SiO2 coating that bonds at the molecular level. Hydrophobic, UV-resistant, and lasts 2-5 years.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 4C16 4 6 14 6 20a10 10 0 0020 0C26 14 16 4 16 4z" />
@@ -15,9 +27,22 @@ const features = [
     ),
   },
   {
-    title: "UV Shielding",
+    title: "Graphene Coating",
+    tag: "Advanced",
     description:
-      "Sun damage fades paint, yellows headlights, and ages plastic. Our ceramic coating blocks UV at the molecular level.",
+      "Next-gen graphene-infused protection. Superior heat dissipation, anti-static properties, and deeper gloss than traditional ceramic.",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="16,4 24,10 24,22 16,28 8,22 8,10" />
+        <polygon points="16,10 20,13 20,19 16,22 12,19 12,13" opacity="0.4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Sunfilm Protection",
+    tag: "Interior",
+    description:
+      "Premium window tinting that blocks 99% UV rays, reduces cabin heat, and adds privacy — all while keeping the view crystal clear.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="16" cy="16" r="5" />
@@ -26,24 +51,28 @@ const features = [
     ),
   },
   {
-    title: "Scratch Resistance",
+    title: "Interior Foam Cleaning",
+    tag: "Deep Clean",
     description:
-      "A hardness layer sits above your paint. Minor scratches, swirl marks, and wash marring — handled before they happen.",
+      "Deep foam extraction for seats, dashboard, and carpets. Removes stains, odours, and bacteria — your cabin feels brand new.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 3l3.7 7.5L28 12l-6 5.8L23.4 26 16 22l-7.4 4L10 17.8 4 12l8.3-1.5z" />
+        <rect x="5" y="8" width="22" height="16" rx="3" />
+        <path d="M10 16h12M10 20h8" opacity="0.5" />
+        <circle cx="16" cy="5" r="2" />
       </svg>
     ),
   },
   {
-    title: "Showroom Gloss",
+    title: "Car Wash & Steam Clean",
+    tag: "Essential",
     description:
-      "Not just protection — transformation. Deep, wet-look gloss that makes your car look better than the day you bought it.",
+      "pH-neutral foam wash, clay bar decontamination, and professional steam cleaning. The safest, most thorough wash your car can get.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 2v4M16 26v4M2 16h4M26 16h4" />
-        <path d="M6.3 6.3l2.8 2.8M22.9 22.9l2.8 2.8M6.3 25.7l2.8-2.8M22.9 9.1l2.8-2.8" opacity="0.5" />
-        <circle cx="16" cy="16" r="4" />
+        <path d="M8 24c0-8 4-12 8-18 4 6 8 10 8 18" />
+        <path d="M8 24a8 8 0 0016 0" />
+        <path d="M14 20c0 2 1 3 2 3s2-1 2-3" opacity="0.4" />
       </svg>
     ),
   },
@@ -63,7 +92,7 @@ export default function FeatureCards() {
         >
           <span className="w-7 h-px bg-gold" />
           <span className="text-gold text-[10px] tracking-[0.45em] uppercase">
-            Why This Is Premium
+            Our Services
           </span>
         </motion.div>
 
@@ -79,42 +108,69 @@ export default function FeatureCards() {
           <span className="text-accent/70">PROTECTION</span>
         </motion.h2>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {features.map((feature, i) => (
+        {/* Services grid — 2x3 on desktop, 2-col on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+          {services.map((service, i) => (
             <motion.div
-              key={feature.title}
-              className="group relative rounded-2xl p-6 md:p-8 border border-glass-border bg-glass-bg backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.15]"
+              key={service.title}
+              className="group relative rounded-2xl p-5 md:p-7 border border-glass-border bg-glass-bg backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-white/[0.15]"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{
                 duration: 0.7,
-                delay: i * 0.1,
+                delay: i * 0.08,
                 ease: [0.23, 1, 0.32, 1],
               }}
             >
               {/* Top accent line */}
-              <div className="absolute top-0 left-6 right-6 h-px bg-accent/30" />
+              <div className="absolute top-0 left-5 right-5 h-px bg-accent/30" />
 
               {/* Light sweep on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[linear-gradient(135deg,transparent_40%,rgba(232,240,255,0.04)_50%,transparent_60%)] bg-[length:200%_200%] group-hover:animate-[lightSweep_0.8s_ease-out]" />
 
+              {/* Tag */}
+              <span className="inline-block text-gold text-[9px] md:text-[10px] tracking-[0.3em] uppercase mb-3 font-medium">
+                {service.tag}
+              </span>
+
               {/* Icon */}
-              <div className="text-accent/60 mb-5 group-hover:text-accent/90 transition-colors duration-300">
-                {feature.icon}
+              <div className="text-accent/60 mb-4 group-hover:text-accent/90 transition-colors duration-300">
+                {service.icon}
               </div>
 
               {/* Content */}
-              <h3 className="font-body text-lg font-bold text-text mb-3">
-                {feature.title}
+              <h3 className="font-body text-sm md:text-base font-bold text-text mb-2">
+                {service.title}
               </h3>
-              <p className="text-text-muted text-sm leading-relaxed font-light">
-                {feature.description}
+              <p className="text-text-muted text-xs md:text-sm leading-relaxed font-light">
+                {service.description}
               </p>
             </motion.div>
           ))}
         </div>
+
+        {/* Quiz teaser */}
+        <motion.div
+          className="mt-10 md:mt-14 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="text-text-muted text-sm mb-4 font-light">
+            Not sure which service is right for you?
+          </p>
+          <a
+            href="#quiz"
+            className="inline-flex items-center gap-2 bg-gold text-bg font-body font-semibold text-sm tracking-wide px-7 py-3 rounded-full hover:brightness-110 transition-all duration-300"
+          >
+            Take the Free Protection Quiz
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

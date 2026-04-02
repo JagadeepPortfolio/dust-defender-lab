@@ -76,11 +76,46 @@ export default function Hero({ ready = false }: { ready?: boolean }) {
           Subtle shine. Deep gloss. Protection that lasts.
         </motion.p>
 
+        {/* CTA buttons */}
         <motion.div
-          className="mt-6 md:mt-8 flex items-center gap-3 text-text-muted text-sm"
+          className="mt-6 md:mt-8 flex flex-wrap items-center gap-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1], delay: 0.85 }}
+        >
+          <a
+            href="#quiz"
+            className="inline-flex items-center gap-2 bg-gold text-bg font-body font-semibold text-sm tracking-wide px-6 py-3 rounded-full hover:brightness-110 transition-all duration-300"
+          >
+            Find Your Perfect Protection
+          </a>
+          <a
+            href="tel:+919999999999"
+            className="inline-flex items-center gap-2 border border-accent/20 text-accent/80 font-body text-sm tracking-wide px-6 py-3 rounded-full hover:bg-accent/10 transition-all duration-300"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            Call Now
+          </a>
+        </motion.div>
+
+        {/* Micro-trust line */}
+        <motion.p
+          className="mt-4 text-text-muted/60 text-xs tracking-wide"
           initial={{ opacity: 0 }}
           animate={ready ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          ★ 4.9 Rated · 500+ Cars Detailed · Free Consultation
+        </motion.p>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="mt-6 flex items-center gap-3 text-text-muted text-sm"
+          initial={{ opacity: 0 }}
+          animate={ready ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
           <span className="w-8 h-px bg-accent/30" />
           <span className="tracking-[0.2em] uppercase text-xs">

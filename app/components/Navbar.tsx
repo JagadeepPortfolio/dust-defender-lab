@@ -50,10 +50,19 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wa.me/919999999999?text=Hi%20Dust%20Defender%20Lab%2C%20I%27d%20like%20to%20book%20a%20session."
+              href="tel:+919999999999"
+              className="flex items-center gap-1.5 text-accent/70 text-xs tracking-wide hover:text-accent transition-colors duration-300"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              +91 99999 99999
+            </a>
+            <a
+              href="https://wa.me/919999999999?text=Hi!%20I'd%20like%20to%20book%20a%20session.%20What's%20the%20next%20available%20slot%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-[0.15em] uppercase bg-accent/10 text-accent border border-accent/20 px-5 py-2.5 rounded-full hover:bg-accent/20 transition-all duration-300"
+              className="text-xs tracking-[0.15em] uppercase bg-gold text-bg font-semibold px-5 py-2.5 rounded-full hover:brightness-110 transition-all duration-300"
             >
               Book Now
             </a>
@@ -77,6 +86,14 @@ export default function Navbar() {
             />
           </button>
         </div>
+        {/* Info bar — visible on scroll */}
+        {scrolled && (
+          <div className="hidden md:flex h-6 items-center justify-center gap-4 text-text-muted/50 text-[10px] tracking-wider uppercase border-t border-glass-border">
+            <span>Mon-Sat: 10am-7pm</span>
+            <span className="w-1 h-1 rounded-full bg-gold/40" />
+            <span>LB Nagar, Hyderabad</span>
+          </div>
+        )}
       </motion.nav>
 
       {/* Mobile menu */}

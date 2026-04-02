@@ -7,7 +7,10 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import ScrollStory from "./ScrollStory";
 import FeatureCards from "./FeatureCards";
+import ProtectionQuiz from "./ProtectionQuiz";
 import TrustSection from "./TrustSection";
+import TestimonialsSection from "./TestimonialsSection";
+import FAQSection from "./FAQSection";
 import CTASection from "./CTASection";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
@@ -45,9 +48,12 @@ export default function PageWrapper() {
           <div id="protection">
             <FeatureCards />
           </div>
+          <ProtectionQuiz />
           <div id="about">
             <TrustSection />
           </div>
+          <TestimonialsSection />
+          <FAQSection />
           <div id="contact">
             <CTASection />
           </div>

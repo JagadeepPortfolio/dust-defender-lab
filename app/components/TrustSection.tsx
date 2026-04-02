@@ -207,6 +207,27 @@ export default function TrustSection() {
           Whether you need bike detailing or full ceramic coating for your car,
           visit Dust Defender Lab today.
         </motion.p>
+
+        {/* Neighborhood pills */}
+        <motion.div
+          className="mt-8 flex flex-wrap gap-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <span className="text-text-muted/50 text-[10px] tracking-wider uppercase mr-1 self-center">
+            Serving:
+          </span>
+          {["Banjara Hills", "Jubilee Hills", "HITEC City", "Gachibowli", "Madhapur", "Kondapur", "LB Nagar", "Dilsukhnagar"].map((area) => (
+            <span
+              key={area}
+              className="text-[10px] text-text-muted/60 border border-glass-border rounded-full px-3 py-1"
+            >
+              {area}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

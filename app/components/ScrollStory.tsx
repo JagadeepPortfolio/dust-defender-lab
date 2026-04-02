@@ -206,6 +206,9 @@ export default function ScrollStory() {
           </div>
         </div>
 
+        {/* Post-story CTA — fades in at final stage */}
+        <ScrollStoryCTA progress={scrollYProgress} />
+
         {/* Progress dots */}
         <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3">
           {stages.map((stage, i) => (
@@ -218,6 +221,43 @@ export default function ScrollStory() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ScrollStoryCTA({ progress }: { progress: MotionValue<number> }) {
+  const opacity = useTransform(progress, [0.82, 0.92], [0, 1]);
+  const y = useTransform(progress, [0.82, 0.92], [30, 0]);
+
+  return (
+    <motion.div
+      className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 w-[90%] max-w-md"
+      style={{ opacity, y }}
+    >
+      <div className="bg-glass-bg backdrop-blur-xl border border-glass-border rounded-2xl p-5 md:p-6 text-center">
+        <p className="font-display text-lg md:text-xl text-text tracking-wide mb-1">
+          YOUR TRANSFORMATION STARTS HERE
+        </p>
+        <p className="text-text-muted text-xs mb-4 font-light">
+          Find out which protection is right for your vehicle
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+          <a
+            href="#quiz"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-bg font-body font-semibold text-xs tracking-wide px-5 py-2.5 rounded-full hover:brightness-110 transition-all duration-300"
+          >
+            Take the Free Quiz
+          </a>
+          <a
+            href="https://wa.me/919999999999?text=Hi!%20I%20loved%20the%20process%20on%20your%20site.%20I'd%20like%20a%20quote%20for%20my%20car."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-accent/20 text-accent/70 font-body text-xs tracking-wide px-5 py-2.5 rounded-full hover:bg-accent/10 transition-all duration-300"
+          >
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
